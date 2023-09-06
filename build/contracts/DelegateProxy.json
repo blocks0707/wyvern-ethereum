@@ -1,0 +1,1242 @@
+{
+  "contractName": "DelegateProxy",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "name": "extraData",
+          "type": "bytes"
+        }
+      ],
+      "name": "receiveApproval",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "ReceivedEther",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "extraData",
+          "type": "bytes"
+        }
+      ],
+      "name": "ReceivedTokens",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "dest",
+          "type": "address"
+        },
+        {
+          "name": "calldata",
+          "type": "bytes"
+        }
+      ],
+      "name": "delegateProxy",
+      "outputs": [
+        {
+          "name": "result",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "dest",
+          "type": "address"
+        },
+        {
+          "name": "calldata",
+          "type": "bytes"
+        }
+      ],
+      "name": "delegateProxyAssert",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.4.23+commit.124ca40d\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"from\",\"type\":\"address\"},{\"name\":\"value\",\"type\":\"uint256\"},{\"name\":\"token\",\"type\":\"address\"},{\"name\":\"extraData\",\"type\":\"bytes\"}],\"name\":\"receiveApproval\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dest\",\"type\":\"address\"},{\"name\":\"calldata\",\"type\":\"bytes\"}],\"name\":\"delegateProxyAssert\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dest\",\"type\":\"address\"},{\"name\":\"calldata\",\"type\":\"bytes\"}],\"name\":\"delegateProxy\",\"outputs\":[{\"name\":\"result\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"ReceivedEther\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":true,\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"extraData\",\"type\":\"bytes\"}],\"name\":\"ReceivedTokens\",\"type\":\"event\"}],\"devdoc\":{\"author\":\"Project Wyvern Developers\",\"methods\":{\"delegateProxy(address,bytes)\":{\"details\":\"Owner only\",\"params\":{\"calldata\":\"Calldata to send\",\"dest\":\"Address to which the call will be sent\"},\"return\":\"Result of the delegatecall (success or failure)\"},\"delegateProxyAssert(address,bytes)\":{\"details\":\"Same functionality as `delegateProxy`, just asserts the return value\",\"params\":{\"calldata\":\"Calldata to send\",\"dest\":\"Address to which the call will be sent\"}},\"receiveApproval(address,uint256,address,bytes)\":{\"details\":\"Receive tokens and generate a log event\",\"params\":{\"extraData\":\"Additional data to log\",\"from\":\"Address from which to transfer tokens\",\"token\":\"Address of token\",\"value\":\"Amount of tokens to transfer\"}},\"transferOwnership(address)\":{\"details\":\"Allows the current owner to transfer control of the contract to a newOwner.\",\"params\":{\"newOwner\":\"The address to transfer ownership to.\"}}},\"title\":\"DelegateProxy\"},\"userdoc\":{\"methods\":{\"delegateProxy(address,bytes)\":{\"notice\":\"Execute a DELEGATECALL from the proxy contract\"},\"delegateProxyAssert(address,bytes)\":{\"notice\":\"Execute a DELEGATECALL and assert success\"}}}},\"settings\":{\"compilationTarget\":{\"/Users/joongyu.sun/workspace/blockchain/blocks/workspace.0315/wyvern-ethereum/contracts/dao/DelegateProxy.sol\":\"DelegateProxy\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":750},\"remappings\":[]},\"sources\":{\"/Users/joongyu.sun/workspace/blockchain/blocks/workspace.0315/wyvern-ethereum/contracts/common/TokenRecipient.sol\":{\"keccak256\":\"0xecb0738b5567475883913156bd6e86a6dca31e63b1fc3ed3581ca6b7ef23660c\",\"urls\":[\"bzzr://b0c8e13ddc98cdc80d87caf109f853c1bd96fc52c0015065fa90ea116ba9355d\"]},\"/Users/joongyu.sun/workspace/blockchain/blocks/workspace.0315/wyvern-ethereum/contracts/dao/DelegateProxy.sol\":{\"keccak256\":\"0x8b73fea0740e103a1243acd66c2d8514b8dc50f4fd50ff1aa9070bc7af61d4ec\",\"urls\":[\"bzzr://f11de63fc541ec32241973e6c014ba33f6d68d92c8cc22f49a9d00beb79b4a2a\"]},\"openzeppelin-solidity/contracts/ownership/Ownable.sol\":{\"keccak256\":\"0x1ad4ec802268eb3e02e732ecf8b65c39bb00cdf448e7737aea27ecfa9fd10d6a\",\"urls\":[\"bzzr://48e1527fc312977c07458860913fb596a78b3f1744202b75b8d27dcfe8bbea3b\"]},\"openzeppelin-solidity/contracts/token/ERC20/ERC20.sol\":{\"keccak256\":\"0xd0b7ada654221cc9e4cb4a97754b99d2e7c2fb824303f1ba5f1661f4e8086751\",\"urls\":[\"bzzr://95e6edb880940b6e1182c30f97e674a3598768fca1607d9fa145840ec3dddf97\"]},\"openzeppelin-solidity/contracts/token/ERC20/ERC20Basic.sol\":{\"keccak256\":\"0x1fd84910b5033c9d169995cd88bdd465d37d4a384ef2837b238b88cd26ef74e7\",\"urls\":[\"bzzr://620436dae6ea9102dd7372bf01ceb67d052c3a02d8b23a5d1648bd48a99edf62\"]}},\"version\":1}",
+  "bytecode": "0x608060405260008054600160a060020a033316600160a060020a0319909116179055610618806100306000396000f30060806040526004361061006c5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b81146100ba5780638f4ffcb1146100f8578063a018f2b214610177578063f2fde38b146101eb578063fc74dadd14610219575b60408051348152905173ffffffffffffffffffffffffffffffffffffffff3316917fa419615bc8fda4c87663805ee2a3597a6d71c1d476911d9892f340d965bc7bf1919081900360200190a2005b3480156100c657600080fd5b506100cf6102a1565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b34801561010457600080fd5b50604080516020601f6064356004818101359283018490048402850184019095528184526101759473ffffffffffffffffffffffffffffffffffffffff8135811695602480359660443590931695369560849492019181908401838280828437509497506102bd9650505050505050565b005b34801561018357600080fd5b5060408051602060046024803582810135601f810185900485028601850190965285855261017595833573ffffffffffffffffffffffffffffffffffffffff1695369560449491939091019190819084018382808284375094975061044b9650505050505050565b3480156101f757600080fd5b5061017573ffffffffffffffffffffffffffffffffffffffff60043516610464565b34801561022557600080fd5b5060408051602060046024803582810135601f810185900485028601850190965285855261028d95833573ffffffffffffffffffffffffffffffffffffffff1695369560449491939091019190819084018382808284375094975061053b9650505050505050565b604080519115158252519081900360200190f35b60005473ffffffffffffffffffffffffffffffffffffffff1681565b604080517f23b872dd00000000000000000000000000000000000000000000000000000000815273ffffffffffffffffffffffffffffffffffffffff8681166004830152308116602483015260448201869052915184928316916323b872dd9160648083019260209291908290030181600087803b15801561033e57600080fd5b505af1158015610352573d6000803e3d6000fd5b505050506040513d602081101561036857600080fd5b5051151561037557600080fd5b8273ffffffffffffffffffffffffffffffffffffffff168573ffffffffffffffffffffffffffffffffffffffff167fd65b48fd35864b3528d38e44760be5553248f89bf3ff6b06cca57817cc2650bf86856040518083815260200180602001828103825283818151815260200191508051906020019080838360005b838110156104095781810151838201526020016103f1565b50505050905090810190601f1680156104365780820380516001836020036101000a031916815260200191505b50935050505060405180910390a35050505050565b610455828261053b565b151561046057600080fd5b5050565b6000543373ffffffffffffffffffffffffffffffffffffffff90811691161461048c57600080fd5b73ffffffffffffffffffffffffffffffffffffffff811615156104ae57600080fd5b6000805460405173ffffffffffffffffffffffffffffffffffffffff808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080547fffffffffffffffffffffffff00000000000000000000000000000000000000001673ffffffffffffffffffffffffffffffffffffffff92909216919091179055565b600080543373ffffffffffffffffffffffffffffffffffffffff90811691161461056457600080fd5b8273ffffffffffffffffffffffffffffffffffffffff168260405180828051906020019080838360005b838110156105a657818101518382015260200161058e565b50505050905090810190601f1680156105d35780820380516001836020036101000a031916815260200191505b50915050600060405180830381855af4959450505050505600a165627a7a7230582061db620960871b63bc2dbafe4e92f8f6b2b3b776bf12666f12e5886eea265cd40029",
+  "deployedBytecode": "0x60806040526004361061006c5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b81146100ba5780638f4ffcb1146100f8578063a018f2b214610177578063f2fde38b146101eb578063fc74dadd14610219575b60408051348152905173ffffffffffffffffffffffffffffffffffffffff3316917fa419615bc8fda4c87663805ee2a3597a6d71c1d476911d9892f340d965bc7bf1919081900360200190a2005b3480156100c657600080fd5b506100cf6102a1565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b34801561010457600080fd5b50604080516020601f6064356004818101359283018490048402850184019095528184526101759473ffffffffffffffffffffffffffffffffffffffff8135811695602480359660443590931695369560849492019181908401838280828437509497506102bd9650505050505050565b005b34801561018357600080fd5b5060408051602060046024803582810135601f810185900485028601850190965285855261017595833573ffffffffffffffffffffffffffffffffffffffff1695369560449491939091019190819084018382808284375094975061044b9650505050505050565b3480156101f757600080fd5b5061017573ffffffffffffffffffffffffffffffffffffffff60043516610464565b34801561022557600080fd5b5060408051602060046024803582810135601f810185900485028601850190965285855261028d95833573ffffffffffffffffffffffffffffffffffffffff1695369560449491939091019190819084018382808284375094975061053b9650505050505050565b604080519115158252519081900360200190f35b60005473ffffffffffffffffffffffffffffffffffffffff1681565b604080517f23b872dd00000000000000000000000000000000000000000000000000000000815273ffffffffffffffffffffffffffffffffffffffff8681166004830152308116602483015260448201869052915184928316916323b872dd9160648083019260209291908290030181600087803b15801561033e57600080fd5b505af1158015610352573d6000803e3d6000fd5b505050506040513d602081101561036857600080fd5b5051151561037557600080fd5b8273ffffffffffffffffffffffffffffffffffffffff168573ffffffffffffffffffffffffffffffffffffffff167fd65b48fd35864b3528d38e44760be5553248f89bf3ff6b06cca57817cc2650bf86856040518083815260200180602001828103825283818151815260200191508051906020019080838360005b838110156104095781810151838201526020016103f1565b50505050905090810190601f1680156104365780820380516001836020036101000a031916815260200191505b50935050505060405180910390a35050505050565b610455828261053b565b151561046057600080fd5b5050565b6000543373ffffffffffffffffffffffffffffffffffffffff90811691161461048c57600080fd5b73ffffffffffffffffffffffffffffffffffffffff811615156104ae57600080fd5b6000805460405173ffffffffffffffffffffffffffffffffffffffff808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080547fffffffffffffffffffffffff00000000000000000000000000000000000000001673ffffffffffffffffffffffffffffffffffffffff92909216919091179055565b600080543373ffffffffffffffffffffffffffffffffffffffff90811691161461056457600080fd5b8273ffffffffffffffffffffffffffffffffffffffff168260405180828051906020019080838360005b838110156105a657818101518382015260200161058e565b50505050905090810190601f1680156105d35780820380516001836020036101000a031916815260200191505b50915050600060405180830381855af4959450505050505600a165627a7a7230582061db620960871b63bc2dbafe4e92f8f6b2b3b776bf12666f12e5886eea265cd40029",
+  "sourceMap": "506:882:15:-;;;501:5:31;:18;;-1:-1:-1;;;;;509:10:31;501:18;-1:-1:-1;;;;;;501:18:31;;;;;;506:882:15;;;;;;",
+  "deployedSourceMap": "506:882:15:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1100:36:14;;;1126:9;1100:36;;;;;1114:10;1100:36;;;;;;;;;;;;506:882:15;238:20:31;;8:9:-1;5:2;;;30:1;27;20:12;5:2;238:20:31;;;;;;;;;;;;;;;;;;;;;;;741:244:14;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;741:244:14;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;741:244:14;;-1:-1:-1;741:244:14;;-1:-1:-1;;;;;;;741:244:14;;;1252:133:15;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;1252:133:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;1252:133:15;;-1:-1:-1;1252:133:15;;-1:-1:-1;;;;;;;1252:133:15;832:169:31;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;832:169:31;;;;;;;824:171:15;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;824:171:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;824:171:15;;-1:-1:-1;824:171:15;;-1:-1:-1;;;;;;;824:171:15;;;;;;;;;;;;;;;;;;;238:20:31;;;;;;:::o;741:244:14:-;884:33;;;;;;:14;:33;;;;;;;905:4;884:33;;;;;;;;;;;;;;860:5;;884:14;;;;;:33;;;;;;;;;;;;;;844:7;884:14;:33;;;5:2:-1;;;;30:1;27;20:12;5:2;884:33:14;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;884:33:14;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;884:33:14;876:42;;;;;;;;961:5;933:45;;948:4;933:45;;;954:5;968:9;933:45;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;933:45:14;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;741:244;;;;;:::o;1252:133:15:-;1348:29;1362:4;1368:8;1348:13;:29::i;:::-;1340:38;;;;;;;;1252:133;;:::o;832:169:31:-;653:5;;639:10;653:5;639:19;;;653:5;;639:19;631:28;;;;;;908:22;;;;;900:31;;;;;;958:5;;;937:37;;;;;;;958:5;;;937:37;;;980:5;:16;;;;;;;;;;;;;;;832:169::o;824:171:15:-;927:11;653:5:31;;639:10;653:5;639:19;;;653:5;;639:19;631:28;;;;;;961:4:15;:17;;979:8;961:27;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;961:27:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;824:171;-1:-1:-1;;;;;824:171:15:o",
+  "source": "/*\n\n  DELEGATECALL proxy contract.\n  Primarily intended to enable easy atomic composition of future transactions (unknown at the time of proxy creation).\n  Example: atomically deploying a new contract and changing ENS name resolution to point to it.\n  Holds no state and does not capture call results.\n\n*/\n\npragma solidity 0.4.23;\n\nimport \"openzeppelin-solidity/contracts/ownership/Ownable.sol\";\n\nimport \"../common/TokenRecipient.sol\";\n\n/**\n * @title DelegateProxy\n * @author Project Wyvern Developers\n */\ncontract DelegateProxy is TokenRecipient, Ownable {\n\n    /**\n     * Execute a DELEGATECALL from the proxy contract\n     *\n     * @dev Owner only\n     * @param dest Address to which the call will be sent\n     * @param calldata Calldata to send\n     * @return Result of the delegatecall (success or failure)\n     */\n    function delegateProxy(address dest, bytes calldata)\n        public\n        onlyOwner\n        returns (bool result)\n    {\n        return dest.delegatecall(calldata);\n    }\n\n    /**\n     * Execute a DELEGATECALL and assert success\n     *\n     * @dev Same functionality as `delegateProxy`, just asserts the return value\n     * @param dest Address to which the call will be sent\n     * @param calldata Calldata to send\n     */\n    function delegateProxyAssert(address dest, bytes calldata)\n        public\n    {\n        require(delegateProxy(dest, calldata));\n    }\n\n}\n",
+  "sourcePath": "/Users/joongyu.sun/workspace/blockchain/blocks/workspace.0315/wyvern-ethereum/contracts/dao/DelegateProxy.sol",
+  "ast": {
+    "absolutePath": "/Users/joongyu.sun/workspace/blockchain/blocks/workspace.0315/wyvern-ethereum/contracts/dao/DelegateProxy.sol",
+    "exportedSymbols": {
+      "DelegateProxy": [
+        917
+      ]
+    },
+    "id": 918,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 878,
+        "literals": [
+          "solidity",
+          "0.4",
+          ".23"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "307:23:15"
+      },
+      {
+        "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "id": 879,
+        "nodeType": "ImportDirective",
+        "scope": 918,
+        "sourceUnit": 6489,
+        "src": "332:63:15",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/joongyu.sun/workspace/blockchain/blocks/workspace.0315/wyvern-ethereum/contracts/common/TokenRecipient.sol",
+        "file": "../common/TokenRecipient.sol",
+        "id": 880,
+        "nodeType": "ImportDirective",
+        "scope": 918,
+        "sourceUnit": 877,
+        "src": "397:38:15",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 881,
+              "name": "TokenRecipient",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 876,
+              "src": "532:14:15",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_TokenRecipient_$876",
+                "typeString": "contract TokenRecipient"
+              }
+            },
+            "id": 882,
+            "nodeType": "InheritanceSpecifier",
+            "src": "532:14:15"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 883,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 6488,
+              "src": "548:7:15",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$6488",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 884,
+            "nodeType": "InheritanceSpecifier",
+            "src": "548:7:15"
+          }
+        ],
+        "contractDependencies": [
+          876,
+          6488
+        ],
+        "contractKind": "contract",
+        "documentation": "@title DelegateProxy\n@author Project Wyvern Developers",
+        "fullyImplemented": true,
+        "id": 917,
+        "linearizedBaseContracts": [
+          917,
+          6488,
+          876
+        ],
+        "name": "DelegateProxy",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 900,
+              "nodeType": "Block",
+              "src": "944:51:15",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 897,
+                        "name": "calldata",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 888,
+                        "src": "979:8:15",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 895,
+                        "name": "dest",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 886,
+                        "src": "961:4:15",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "id": 896,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "delegatecall",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "961:17:15",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_baredelegatecall_nonpayable$__$returns$_t_bool_$",
+                        "typeString": "function () returns (bool)"
+                      }
+                    },
+                    "id": 898,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "961:27:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 894,
+                  "id": 899,
+                  "nodeType": "Return",
+                  "src": "954:34:15"
+                }
+              ]
+            },
+            "documentation": "Execute a DELEGATECALL from the proxy contract\n     * @dev Owner only\n@param dest Address to which the call will be sent\n@param calldata Calldata to send\n@return Result of the delegatecall (success or failure)",
+            "id": 901,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 891,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 890,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 6462,
+                  "src": "900:9:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "900:9:15"
+              }
+            ],
+            "name": "delegateProxy",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 889,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 886,
+                  "name": "dest",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 901,
+                  "src": "847:12:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 885,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "847:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 888,
+                  "name": "calldata",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 901,
+                  "src": "861:14:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 887,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "861:5:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "846:30:15"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 894,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 893,
+                  "name": "result",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 901,
+                  "src": "927:11:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 892,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "927:4:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "926:13:15"
+            },
+            "scope": 917,
+            "src": "824:171:15",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 915,
+              "nodeType": "Block",
+              "src": "1330:55:15",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 910,
+                            "name": "dest",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 903,
+                            "src": "1362:4:15",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 911,
+                            "name": "calldata",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 905,
+                            "src": "1368:8:15",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes_memory_ptr",
+                              "typeString": "bytes memory"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            {
+                              "typeIdentifier": "t_bytes_memory_ptr",
+                              "typeString": "bytes memory"
+                            }
+                          ],
+                          "id": 909,
+                          "name": "delegateProxy",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 901,
+                          "src": "1348:13:15",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$returns$_t_bool_$",
+                            "typeString": "function (address,bytes memory) returns (bool)"
+                          }
+                        },
+                        "id": 912,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1348:29:15",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 908,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        6581,
+                        6582
+                      ],
+                      "referencedDeclaration": 6581,
+                      "src": "1340:7:15",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 913,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1340:38:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 914,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1340:38:15"
+                }
+              ]
+            },
+            "documentation": "Execute a DELEGATECALL and assert success\n     * @dev Same functionality as `delegateProxy`, just asserts the return value\n@param dest Address to which the call will be sent\n@param calldata Calldata to send",
+            "id": 916,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "delegateProxyAssert",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 906,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 903,
+                  "name": "dest",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 916,
+                  "src": "1281:12:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 902,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1281:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 905,
+                  "name": "calldata",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 916,
+                  "src": "1295:14:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 904,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1295:5:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1280:30:15"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 907,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1330:0:15"
+            },
+            "scope": 917,
+            "src": "1252:133:15",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 918,
+        "src": "506:882:15"
+      }
+    ],
+    "src": "307:1082:15"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/joongyu.sun/workspace/blockchain/blocks/workspace.0315/wyvern-ethereum/contracts/dao/DelegateProxy.sol",
+    "exportedSymbols": {
+      "DelegateProxy": [
+        917
+      ]
+    },
+    "id": 918,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 878,
+        "literals": [
+          "solidity",
+          "0.4",
+          ".23"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "307:23:15"
+      },
+      {
+        "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "id": 879,
+        "nodeType": "ImportDirective",
+        "scope": 918,
+        "sourceUnit": 6489,
+        "src": "332:63:15",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/joongyu.sun/workspace/blockchain/blocks/workspace.0315/wyvern-ethereum/contracts/common/TokenRecipient.sol",
+        "file": "../common/TokenRecipient.sol",
+        "id": 880,
+        "nodeType": "ImportDirective",
+        "scope": 918,
+        "sourceUnit": 877,
+        "src": "397:38:15",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 881,
+              "name": "TokenRecipient",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 876,
+              "src": "532:14:15",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_TokenRecipient_$876",
+                "typeString": "contract TokenRecipient"
+              }
+            },
+            "id": 882,
+            "nodeType": "InheritanceSpecifier",
+            "src": "532:14:15"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 883,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 6488,
+              "src": "548:7:15",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$6488",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 884,
+            "nodeType": "InheritanceSpecifier",
+            "src": "548:7:15"
+          }
+        ],
+        "contractDependencies": [
+          876,
+          6488
+        ],
+        "contractKind": "contract",
+        "documentation": "@title DelegateProxy\n@author Project Wyvern Developers",
+        "fullyImplemented": true,
+        "id": 917,
+        "linearizedBaseContracts": [
+          917,
+          6488,
+          876
+        ],
+        "name": "DelegateProxy",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 900,
+              "nodeType": "Block",
+              "src": "944:51:15",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 897,
+                        "name": "calldata",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 888,
+                        "src": "979:8:15",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 895,
+                        "name": "dest",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 886,
+                        "src": "961:4:15",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "id": 896,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "delegatecall",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "961:17:15",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_baredelegatecall_nonpayable$__$returns$_t_bool_$",
+                        "typeString": "function () returns (bool)"
+                      }
+                    },
+                    "id": 898,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "961:27:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 894,
+                  "id": 899,
+                  "nodeType": "Return",
+                  "src": "954:34:15"
+                }
+              ]
+            },
+            "documentation": "Execute a DELEGATECALL from the proxy contract\n     * @dev Owner only\n@param dest Address to which the call will be sent\n@param calldata Calldata to send\n@return Result of the delegatecall (success or failure)",
+            "id": 901,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 891,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 890,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 6462,
+                  "src": "900:9:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "900:9:15"
+              }
+            ],
+            "name": "delegateProxy",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 889,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 886,
+                  "name": "dest",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 901,
+                  "src": "847:12:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 885,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "847:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 888,
+                  "name": "calldata",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 901,
+                  "src": "861:14:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 887,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "861:5:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "846:30:15"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 894,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 893,
+                  "name": "result",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 901,
+                  "src": "927:11:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 892,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "927:4:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "926:13:15"
+            },
+            "scope": 917,
+            "src": "824:171:15",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 915,
+              "nodeType": "Block",
+              "src": "1330:55:15",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 910,
+                            "name": "dest",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 903,
+                            "src": "1362:4:15",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 911,
+                            "name": "calldata",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 905,
+                            "src": "1368:8:15",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes_memory_ptr",
+                              "typeString": "bytes memory"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            {
+                              "typeIdentifier": "t_bytes_memory_ptr",
+                              "typeString": "bytes memory"
+                            }
+                          ],
+                          "id": 909,
+                          "name": "delegateProxy",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 901,
+                          "src": "1348:13:15",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$returns$_t_bool_$",
+                            "typeString": "function (address,bytes memory) returns (bool)"
+                          }
+                        },
+                        "id": 912,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1348:29:15",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 908,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        6581,
+                        6582
+                      ],
+                      "referencedDeclaration": 6581,
+                      "src": "1340:7:15",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 913,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1340:38:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 914,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1340:38:15"
+                }
+              ]
+            },
+            "documentation": "Execute a DELEGATECALL and assert success\n     * @dev Same functionality as `delegateProxy`, just asserts the return value\n@param dest Address to which the call will be sent\n@param calldata Calldata to send",
+            "id": 916,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "delegateProxyAssert",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 906,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 903,
+                  "name": "dest",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 916,
+                  "src": "1281:12:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 902,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1281:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 905,
+                  "name": "calldata",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 916,
+                  "src": "1295:14:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 904,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1295:5:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1280:30:15"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 907,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1330:0:15"
+            },
+            "scope": 917,
+            "src": "1252:133:15",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 918,
+        "src": "506:882:15"
+      }
+    ],
+    "src": "307:1082:15"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.23+commit.124ca40d.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.1.0",
+  "updatedAt": "2023-08-19T01:23:21.288Z",
+  "devdoc": {
+    "author": "Project Wyvern Developers",
+    "methods": {
+      "delegateProxy(address,bytes)": {
+        "details": "Owner only",
+        "params": {
+          "calldata": "Calldata to send",
+          "dest": "Address to which the call will be sent"
+        },
+        "return": "Result of the delegatecall (success or failure)"
+      },
+      "delegateProxyAssert(address,bytes)": {
+        "details": "Same functionality as `delegateProxy`, just asserts the return value",
+        "params": {
+          "calldata": "Calldata to send",
+          "dest": "Address to which the call will be sent"
+        }
+      },
+      "receiveApproval(address,uint256,address,bytes)": {
+        "details": "Receive tokens and generate a log event",
+        "params": {
+          "extraData": "Additional data to log",
+          "from": "Address from which to transfer tokens",
+          "token": "Address of token",
+          "value": "Amount of tokens to transfer"
+        }
+      },
+      "transferOwnership(address)": {
+        "details": "Allows the current owner to transfer control of the contract to a newOwner.",
+        "params": {
+          "newOwner": "The address to transfer ownership to."
+        }
+      }
+    },
+    "title": "DelegateProxy"
+  },
+  "userdoc": {
+    "methods": {
+      "delegateProxy(address,bytes)": {
+        "notice": "Execute a DELEGATECALL from the proxy contract"
+      },
+      "delegateProxyAssert(address,bytes)": {
+        "notice": "Execute a DELEGATECALL and assert success"
+      }
+    }
+  }
+}

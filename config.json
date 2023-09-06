@@ -1,0 +1,35 @@
+{
+  "deployed": {
+    "mumbai": {
+      "Migrations": "0x2aec7fdc3815aa2fa29134fd7b419dc2135ddded",
+      "WyvernDAOProxy": "0x7b3aaaf2af7d870c6139f97942b2d3c962f99266",
+      "WyvernAtomicizer": "0x3cd0dd4bf0909e16a025cddb912775adab6ae5c2",
+      "WyvernProxyRegistry": "0x6b544f6f8c839d39e81d1fb03998396b1f514b32",
+      "WyvernTokenTransferProxy": "0x786985c049f9bc2bbe8209a993c20002bba72959",
+      "WyvernExchange": "0xefaeec5d14a3012d414ec90e8c49bb26888b640a"
+    },
+    "polygon": {
+      "Migrations": "0x4b31232577965e3fd6a3f14d3a540a364ed65149",
+      "WyvernDAOProxy": "0x6701f10eb4100b2e44fe6d7f5f5a1bac3498b9cb",
+      "WyvernAtomicizer": "0xb81336184c9b49e003239d626eeb0a3d9ec7e67b",
+      "WyvernProxyRegistry": "0x44dc762fef32674dd03019f56b15af125e7328a6",
+      "WyvernTokenTransferProxy": "0x247e7896ad897f8539395e4993180e54cb8efe05",
+      "WyvernExchange": "0x781ed81166e7ee38732a6ae3cbc9d298ae903b49"
+    },
+    "mainnet": {
+      "Migrations": "0xbb0f0963d22d6e5353055b550d78ff6e7b47776e",
+      "WyvernDAOProxy": "0x44da0cecba91376763445486ab3040f09de9637e",
+      "WyvernAtomicizer": "0xa27e84f7781f56134a3155d61a2d69b0e08aff15",
+      "WyvernProxyRegistry": "0x10ba709f9d2289912746b0c1608be806b3c3a672",
+      "WyvernTokenTransferProxy": "0xa9c82837aba0960783f86101283db33706b172f5",
+      "WyvernExchange": "0x78dc04b71e9cdd15a05d193aee1b2002b922ecad"
+    },
+    "goerli": {
+      "Migrations": "0xad3d7fa3413bf63e52e52b9f8c085a30e1372f4d",
+      "WyvernDAOProxy": "0x7561374f2c8f6b58b1b84bb74588fb73f2c48c13",
+      "WyvernAtomicizer": "0x377e180de944335a54cef54214eb4f8b9ca0a43f",
+      "WyvernProxyRegistry": "0x2ca4f84723a73ac8ed48c247eada621bf960ed7a",
+      "WyvernTokenTransferProxy": "0x7b835bc3a5a8b906d309a7430a16148262d74068"
+    }
+  }
+}
